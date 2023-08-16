@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eshop.Models
 {
+    //[Table("Urunler")]
     public class Product
     {
         public int Id { get; set; }
@@ -13,5 +15,8 @@ namespace eshop.Models
         public decimal? Discount { get; set;}
         public String? ImageUrl { get; set; } = "https://cdn.dsmcdn.com/ty544/product/media/images/20220929/18/181394174/583093456/1/1_org.jpg";
         public int? CategoryId { get; set; }
+
+        //Navigation Property
+        public Category Category { get; set; }
     }
 }
