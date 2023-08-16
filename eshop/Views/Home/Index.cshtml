@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Product> 
+@{
+    ViewData["Title"] = "Home Page";
+    int rowCount = 0;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="row m-2">
+    @foreach (var product in Model)
+    {
+        @if(rowCount != 0 && rowCount % 4 == 0)
+        {
+            @:</div><div class="row m-2">
+        }
+        <div class="col-3">
+            <partial name ="_productCard" model="@product"/>
+        </div>
+        rowCount++;
+    }
+    
+</div>
+
+  <ul class="pagination">    
+    
+  @for(int i = 1; i <= ViewBag.Pages; i++)
+  {
+    <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Home" asp-route-pageNo="@i" asp-route-categort="@ViewBag.Category">@i</a></li>
+  }
+
+  </ul>
+
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Sepete eklendi!</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div id="toastbody" class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>
+
+  @section Scripts{
+      <script>
+          $(document).ready(function(){
+              $('.basket').on('click',function(){
+                  let id = $(this).data('id');
+                  console.log("Butona tıklandı",id);
+                  $.ajax({
+                      url:'/Shopping/AddToCard/'+id,
+                      method:'GET',
+                      success: function(data){
+                          console.log(data);
+                          $('#toastbody').text(data.message);
+                          var toastLiveExample = document.getElementById('liveToast');
+                          var toast = new bootstrap.Toast(toastLiveExample);
+                          toast.show();
+
+                      },
+                      error: function(err){
+                          console.log(err);
+                      }
+
+                  })
+              });
+          });
+      </script>
+  }
