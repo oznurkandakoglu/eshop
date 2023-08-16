@@ -1,4 +1,6 @@
+using eshop.Data;
 using eshop.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace eshop
 {
@@ -10,10 +12,13 @@ namespace eshop
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IProductService, FakeProductService>();
-            builder.Services.AddScoped<ICategoryService, FakeCategoryService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             builder.Services.AddSession();
+
+            var connectionStrings = builder.Configuration.GetConnectionString("db");
+            builder.Services.AddDbContext<AkbankDbContext>(option => option.UseSqlServer(connectionStrings));
 
             var app = builder.Build();
 
