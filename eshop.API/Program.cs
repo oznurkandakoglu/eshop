@@ -1,4 +1,8 @@
 
+using eshop.Application.Services;
+using eshop.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IProductService, FakeProductService>();
+builder.Services.AddScoped<ICategoryService, FakeCategoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddSession();
+
+var connectionStrings = builder.Configuration.GetConnectionString("db");
+builder.Services.AddDbContext<AkbankDbContext>(option => option.UseSqlServer(connectionStrings));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
