@@ -31,3 +31,9 @@ C:\Users\oznur\source\repos\eshop\eshop.API\obj\Debug\net7.0\refint\eshop.API.dl
 C:\Users\oznur\source\repos\eshop\eshop.API\obj\Debug\net7.0\eshop.API.pdb
 C:\Users\oznur\source\repos\eshop\eshop.API\obj\Debug\net7.0\eshop.API.genruntimeconfig.cache
 C:\Users\oznur\source\repos\eshop\eshop.API\obj\Debug\net7.0\ref\eshop.API.dll
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\eshop.Application.dll
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\eshop.Infrastructure.dll
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\eshop.Application.pdb
+C:\Users\oznur\source\repos\eshop\eshop.API\bin\Debug\net7.0\eshop.Infrastructure.pdb

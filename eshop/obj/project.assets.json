@@ -3862,6 +3862,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "eshop.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "eshop.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/eshop.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eshop.Application.dll": {}
+        }
+      },
+      "eshop.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.10"
+        },
+        "compile": {
+          "bin/placeholder/eshop.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/eshop.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -11267,6 +11293,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "eshop.Application/1.0.0": {
+      "type": "project",
+      "path": "../eshop.Application/eshop.Application.csproj",
+      "msbuildProject": "../eshop.Application/eshop.Application.csproj"
+    },
+    "eshop.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../eshop.Infrastructure/eshop.Infrastructure.csproj",
+      "msbuildProject": "../eshop.Infrastructure/eshop.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11274,7 +11310,8 @@
       "Microsoft.EntityFrameworkCore >= 7.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.10",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.9"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.9",
+      "eshop.Application >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11303,7 +11340,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\oznur\\source\\repos\\eshop\\eshop.Application\\eshop.Application.csproj": {
+              "projectPath": "C:\\Users\\oznur\\source\\repos\\eshop\\eshop.Application\\eshop.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

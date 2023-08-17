@@ -1,5 +1,5 @@
-using eshop.Data;
-using eshop.Services;
+using eshop.Application.Services;
+using eshop.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
