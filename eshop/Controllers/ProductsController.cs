@@ -1,10 +1,12 @@
 ﻿using eshop.Models;
 using eshop.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eshop.Controllers
 {
+    [Authorize(Roles = "Admin, Editor")]
     public class ProductsController : Controller
     {
         private readonly IProductService productService;
@@ -15,7 +17,7 @@ namespace eshop.Controllers
             this.productService = productService;
             this.categoryService = categoryService;
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var products = productService.GetProducts();
