@@ -1,4 +1,5 @@
 ﻿using eshop.Application.Services;
+using eshop.Infrastructure.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,24 @@ namespace eshop.API.Controllers
             }
             return Ok(product);
 
+        }
+
+        [HttpGet("[action]/{name}")]
+        public IActionResult SearchByName(string name)
+        {
+            var products = productService.SearchByName(name);
+            return Ok(products);
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewProdct(Product product)
+        {
+            if(ModelState.IsValid)
+            {
+                productService.AddProduct(product);
+                return CreatedAtAction(nameof(GetProduct), routeValues: new {id = product.Id}, value: null);
+            }
+            return BadRequest(ModelState); 
         }
     }
 }

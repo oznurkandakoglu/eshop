@@ -1,6 +1,5 @@
 ﻿using eshop.Infrastructure.Entities;
 
-
 namespace eshop.Application.Services
 {
     public class FakeProductService : IProductService
@@ -31,7 +30,8 @@ namespace eshop.Application.Services
 
         public void AddProduct(Product product)
         {
-            //burası gerçek db yaparken kullanılacak
+            products.Add(product);
+
         }
 
         public Product FindProduct(int productId)
@@ -48,6 +48,11 @@ namespace eshop.Application.Services
         {
             //LINQ:
             return products.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public List<Product> SearchByName(string name)
+        {
+            return  products.Where(p => p.Name.Contains(name)).ToList();
         }
 
         public void Update(Product product)

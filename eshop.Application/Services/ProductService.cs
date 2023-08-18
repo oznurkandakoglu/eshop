@@ -2,7 +2,6 @@
 using eshop.Infrastructure.Data;
 using eshop.Infrastructure.Entities;
 
-
 namespace eshop.Application.Services
 {
     public class ProductService : IProductService
@@ -33,6 +32,11 @@ namespace eshop.Application.Services
         public List<Product> GetProductsByCategoryId(int id)
         {
             return akbankDbContext.Products.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public List<Product> SearchByName(string name)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Product product)
